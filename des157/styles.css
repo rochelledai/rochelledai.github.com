@@ -1,0 +1,36 @@
+body {
+    /* font-family: 'JetBrains Mono', monospace; */
+    font-family: 'Krona One', sans-serif;
+    max-width: 1200px;
+    min-width: 800px;
+}
+
+/* Banner header stuff --------------------------------------*/
+#banner {
+    width: 800px;
+    height: 250px;
+    outline: 1px solid black;
+}
+
+#obj1 {
+    width: 50px;
+    height: 50px;
+    background-color: yellowgreen;
+}
+
+#obj2 {
+    width: 80px;
+    height: 50px;
+    background-color: red;
+}
+
+#obj3 {
+    width: 150px;
+    height: 50px;
+    background-color: teal;
+}
+    
+/* actual text content stuff --------------------------------------*/
+ul li{
+    list-style-type: none
+}
