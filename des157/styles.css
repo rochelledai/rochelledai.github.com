@@ -48,7 +48,7 @@ article {
 #fish img {
     width: 100px;
     position: absolute;   /*ask if this is the best method to stack imgs on top of each other + responsive design */
-    left: 690px;    
+    left: 850px;    /* how to make the fish stay in the banner box when window width changes? */
     top: 105px;
 
     transition: all 1.5s ease-out;
@@ -94,20 +94,20 @@ article {
     width: 50px;
     position: absolute;
     
-    animation-name: starfall; 
+    animation-name: pstarfall; 
     animation-duration: 4s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards; /*causes the star to stick to the end position once animation is over */
 }
 
-@keyframes starfall {
+@keyframes pstarfall {
     0% {
-        left: 550px;
+        left: 735px;
         top: 50px;
     }
     100% {
         bottom: calc(100%-20px);
-        left: 550px;
+        left: 735px;
         top: 22%;
     }
 }
@@ -115,23 +115,23 @@ article {
 #ystar img {
     width: 50px;
     position: absolute;
-    left: 850px;
+    left: 1050px;
     top: 50px;
 
-    animation-name: starfall2; 
+    animation-name: ystarfall; 
     animation-duration: 1.5s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
 }
 
-@keyframes starfall2 {
+@keyframes ystarfall {
     0% {
-        left: 850px;
+        left: 1050px;
         top: 50px;
     }
     100% {
         bottom: calc(100%-20px);
-        left: 850px;
+        left: 1050px;
         top: 18%;
     }
 }
