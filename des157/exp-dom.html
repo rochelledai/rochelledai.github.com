@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiments with DOM</title>
+</head>
+<body>
+    <h1>Fortune Teller</h1>
+    <script>
+        //generates a fortune based on the user's name.
+        var userInput = prompt("Welcome to Online Fortune Telling! What is your name?", "");
+
+        //arrays of the possible outcomes
+        var nouns = ['ox','cat', 'fish', 'tiger', 'bunny', 'spider'];
+
+        var outlook = ['great', 'good', 'bad', 'splendid', 'promising', 'exciting', 'terrible'];
+
+        //uses a for loop to tell the user that it's thinking of a fortune...
+        function thinking(name) {
+            name = Math.abs(name.length - 5);
+            for (var i=0; i<name; i++) {
+                console.log(`Counting the number of stars in your future... ${i}`);
+            }
+        }
+
+        //selects a noun from the array based on the % of length of the name
+        function myNoun(name) {
+            var nameLength = Math.floor(name.length % 6);
+            var selectNoun = nouns[nameLength];
+            return selectNoun;
+        }
+
+        // selects an outlook from the array based on the value returned from the function myNoun
+        function myOutlook(nounParam) {
+            outlookIndex = nounParam.length;
+            var outlookParam = outlook[outlookIndex];
+            return outlookParam;
+        }
+
+
+        //if the user inputs nothing or cancels,
+        if (userInput == null || userInput == "") {
+            console.log("I can't tell your fortune because I don't know your name!");
+        }
+        else {
+            thinking(userInput);
+            var userNoun = myNoun(userInput); //using returned data from another function
+
+            console.log(`In your future I see a giant ${userNoun}`);
+
+
+            console.log(`This could mean that things are looking ${myOutlook(userNoun)} for you`);
+
+        }
+
+        
+
+
+    </script>
+</body>
+</html>

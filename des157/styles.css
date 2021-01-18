@@ -140,6 +140,10 @@ h2 {
 
     
 /* actual text content stuff --------------------------------------*/
+/* ul {
+    padding: 0px;
+}
+*/
 ul li{
     list-style-type: none
 }
