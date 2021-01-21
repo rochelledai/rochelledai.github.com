@@ -1,0 +1,85 @@
+body {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+div {
+    height: 450px;
+}
+
+h1 {
+    font-family: 'Manrope', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    margin-top: 50px;
+    font-size: 18px;
+    color: rgb(180, 180, 180);
+}
+
+h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 55px;
+    margin-top: -5px;
+    margin-bottom: 5px;
+}
+h3 {
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: 7px;
+    font-size: 18px;
+    color: rgb(180, 180, 180);
+}
+
+h1:hover{
+    color: #e80090;
+}
+h2:hover{
+    color: #e80090;
+}
+h3:hover{
+    color: #e80090;
+}
+
+
+/* #vert {   //vertical line next to the most recent article
+    background-color: red;
+    width: 20px;
+    height: 200px;
+} */
+
+article {
+    margin-top: 65px;
+}
+
+article p {
+    font-family: 'Manrope', sans-serif;
+    line-height: 20pt;
+    column-count: 3;
+    column-gap: 20px;
+}
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+
+    font-family: 'Manrope', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    font-weight: 700;
+    
+    
+}
+footer a{
+    padding: 25px;
+    text-decoration: none;
+    color: rgb(180, 180, 180);
+}
+
+a:hover {
+    color: #e80090;
+}
