@@ -69,12 +69,10 @@ form input:last-of-type{
 }
 
 .hidden {
-    visibility: hidden;
     bottom:-1000px;
 }
 
 .showing {
-    visibility: showing;
     bottom: -150px;
 }
 
@@ -85,7 +83,7 @@ form input:last-of-type{
     width: 100vw;
     height: 100vh;
 
-    transition-property: bottom visibility;
+    transition-property: bottom;
     transition-duration: 1.5s;
     transition-timing-function: ease;
 }
