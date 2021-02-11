@@ -7,7 +7,7 @@ body {
 }
 
 
-div {
+#banner {
     height: 450px;
 }
 
@@ -54,7 +54,7 @@ article {
     margin-top: 40px;
 }
 
-article p {
+article p{
     font-family: 'Manrope', sans-serif;
     line-height: 20pt;
     column-count: 3;
@@ -64,6 +64,26 @@ article p {
 main {
     display: flex;
     flex-direction: column-reverse;
+}
+
+.pic {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    /* margin-bottom: -100px; */
+}
+.pic p{
+    width: 780px;
+    column-count: 2;
+    column-gap: 20px;
+}
+
+.imgcap {
+    padding: 70px 50px 0px 50px;
+}
+figcaption {
+    font-family: 'Manrope', sans-serif;
+    padding-top: 10px;
 }
 
 footer {
