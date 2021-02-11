@@ -43,12 +43,7 @@ h3:hover{
     color: #e80090;
 }
 
-
-/* #vert {   //vertical line next to the most recent article
-    background-color: red;
-    width: 20px;
-    height: 200px;
-} */
+/* blog entries */
 
 article {
     margin-top: 40px;
@@ -66,11 +61,11 @@ main {
     flex-direction: column-reverse;
 }
 
+/* posts with imgs */
 .pic {
     display: flex;
     justify-content: space-between;
     align-items:center;
-    /* margin-bottom: -100px; */
 }
 .pic p{
     width: 780px;
