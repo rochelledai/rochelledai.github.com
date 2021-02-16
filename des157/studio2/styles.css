@@ -1,0 +1,90 @@
+body {
+    background-image: url(../images/cass/wallpaper.jpg);
+    overflow: hidden;
+    position: relative;
+    font-family: 'DM Mono', monospace;
+    color: blue;
+    display: flex;
+    justify-content: center;
+}
+
+/* red thumbnails */
+.red {
+    position: absolute;
+    width: 300px;
+    transition: all .5s ease-out;
+}
+.red:hover{
+    width: 325px;
+}
+
+/* individual casette positions */
+#cass1 {
+    top: -100px;
+    transform: rotate(-35deg); /* how to make it rotated to begin with? */
+    right: 250px;
+}
+#cass2 {
+    top: 450px;
+    transform: rotate(20deg);
+    right: 100px;
+}
+#cass3 {
+    top: 160px;
+    transform: rotate(-50deg);
+    left: -50px;
+    width: 480px;
+}
+#cass3:hover{
+    width: 530px;
+}
+#cass4 {
+    top: 540px;
+    transform: rotate(-10deg);
+    left: 60px;
+    width: 580px;
+}
+#cass4:hover{
+    width: 620px;
+}
+
+/* text at the top */
+#text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 450px;
+    text-align: center;
+}
+#text h1{
+    margin: 50px 0 0 0;
+}
+#text h2,  #spotlight p{
+    margin: 0;
+    padding:0;
+    font-weight: 400;
+}
+
+/* spotlight img and text */
+#spotlight h3{
+    font-size: 30px;
+    font-weight: 800;
+    font-style: italic;
+    margin: 0;
+    padding: 20px;
+}
+#spotlight {
+    margin-top: 80px;
+}
+#spotlight img {
+    height: 550px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.show {
+    visibility: visible;
+}
