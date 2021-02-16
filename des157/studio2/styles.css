@@ -48,7 +48,7 @@ body {
     width: 620px;
 }
 
-/* text at the top */
+/* heading at the top */
 #text {
     display: flex;
     flex-direction: column;
