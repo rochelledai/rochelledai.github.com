@@ -1,5 +1,5 @@
 body {
-    background-image: url(cass/wallpaper.jpg);
+    background-image: url(images/wallpaper.jpg);
     overflow: hidden;
     position: relative;
     font-family: 'DM Mono', monospace;
@@ -81,7 +81,9 @@ body {
 #spotlight img {
     height: 550px;
 }
-
+#spotlight img:hover {
+    cursor: url(images/playcurs.png), auto;
+}
 .hidden {
     visibility: hidden;
 }
