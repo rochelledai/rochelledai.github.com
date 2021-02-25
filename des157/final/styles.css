@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+h2 {
+    font-size: 60px;
+    padding-right: 100px;
+}
+p {
+    columns: 2;
+    column-gap: 25px;
+    padding: 50px;
+    font-size: 16px;
+    line-height: 22px;
+    width: 85%;
+}
+article {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+}
