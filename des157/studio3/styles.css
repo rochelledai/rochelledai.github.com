@@ -21,7 +21,7 @@ h3, p {
 .dot { 
     height: 300px;
     width: 300px;
-    background-color: none;
+    background-color: transparent;
     border-radius: 50%;
     border: 1px gold solid;
     position: absolute;
