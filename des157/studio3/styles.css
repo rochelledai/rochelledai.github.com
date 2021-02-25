@@ -1,0 +1,140 @@
+body {
+    font-family: Arial;
+    color: gold;
+    background-color: black;
+    line-height: 1.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: 'Righteous', cursive;
+}
+
+h1, h2, button, h3 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+h3, p {
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* score circles */
+.dot { 
+    height: 300px;
+    width: 300px;
+    background-color: none;
+    border-radius: 50%;
+    border: 1px gold solid;
+    position: absolute;
+    margin: auto;
+  }
+/* player1 and player 2 sides */
+#p1, #p2 {
+    height: 100vh;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+}
+
+#score1, #score2 {
+    font-size: 100px;
+    position: absolute;
+    margin: auto;
+    padding: 0;
+}
+
+#player1, #player2 {
+    position: absolute; 
+    margin: auto;
+    padding-bottom: 400px;
+}
+
+/* when its player 1's turn, activate this class */
+.p1on {
+    background: rgb(255,39,76);
+    background: linear-gradient(0deg, rgba(255,39,76,0) 41%, rgba(255,39,76,1) 100%);
+}
+.p2on {
+    background: rgb(63,61,221);
+    background: linear-gradient(0deg, rgba(63,61,221,0) 41%, rgba(63,61,221,1) 100%);
+}
+
+/* center content */
+main {
+    padding: 50px 100px;
+    width: 50%;
+}
+main, #instruct, #gamecontrol, #game{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+button { 
+    padding: 10px 20px;
+    background-color: transparent;
+    border: gold 1px solid;
+    color: gold;
+    font-size: 30px;
+    transition: all 0.5s ease-out;
+}
+button:hover {
+    background-color: gold;
+    color: black;
+}
+
+
+div {
+    padding: 20px;
+}
+
+#gamecontrol, #game {
+    justify-content: center;
+    width: 50%;
+}
+
+#game {
+    margin-top: 50px;
+}
+
+#mess h2 {
+    color: #37db37;
+    margin: 0;
+}
+
+#quit {
+    border: white 1px solid;
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    bottom: 40px;
+}
+#quit:hover {
+    background-color: gold;
+    border: gold 1px solid;
+    color: black;
+}
+
+/* the die imgs */
+img:first-of-type {
+    transform: rotate(20deg);
+}
+img {
+    transform: rotate(70deg);
+    margin: -15px;
+}
+#dies {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+}
+footer a {
+    color: #5c5c5c;
+}
