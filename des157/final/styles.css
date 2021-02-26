@@ -7,8 +7,10 @@ body {
 }
 h2 {
     font-family: 'DotGothic16', sans-serif;
-    font-size: 60px;
-    padding-right: 100px;
+    font-size: 50px;
+    /* padding-right: 100px; */
+    width: 500px;
+    color: lightcoral;
 }
 p {
     columns: 2;
@@ -16,7 +18,7 @@ p {
     padding: 50px;
     font-size: 16px;
     line-height: 22px;
-    width: 85%;
+    width: 1000px;
 }
 article {
     display: flex;
