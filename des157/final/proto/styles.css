@@ -1,0 +1,103 @@
+body {
+    background-image: url(images/wallpaper.jpg);
+    overflow: hidden;
+    position: relative;
+    font-family: 'DM Mono', monospace;
+    color: blue;
+    display: flex;
+    justify-content: center;
+}
+
+/* red thumbnails */
+.red {
+    position: absolute;
+    width: 300px;
+    transition: all .5s ease-out;
+    -webkit-filter: drop-shadow(5px 5px 5px rgba(255,0,0,0.45));
+    filter: drop-shadow(0px 5px 5px rgba(255,0,0,0.45));
+}
+.red:hover{
+    width: 325px;
+    cursor: crosshair;
+}
+
+/* individual casette positions */
+#nurse {
+    top: 100px;
+    left: 40px;
+    transform: rotate(-20deg);
+    width: 600px;
+}
+#nurse:hover {
+    width: 630px;
+}
+
+#cd {
+    top: 610px;
+    transform: rotate(-10deg);
+    left: 120px;
+    width: 490px;
+}
+#cd:hover{
+    width: 520px;
+}
+
+#english {
+    top: 320px;
+    left: 690px;
+    width: 460px;
+}
+
+#english:hover { /* when hover over both photos, both of them enlarge */
+    width: 490px; 
+}
+
+#eyes {
+    top: 30px;
+    transform: rotate(30deg);
+    right: 40px;
+    width: 520px;
+}
+#eyes:hover {
+    width: 540px;
+}
+
+#costco {
+    top: 600px;
+    right: 180px;
+    width: 300px; 
+}
+#costco:hover {
+    width: 330px;
+}
+
+
+/* heading at the top */
+#text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 450px;
+    text-align: center;
+}
+#text h1{
+    margin: 50px 0 0 0;
+}
+#text h2,  #spotlight p{
+    margin: 0;
+    padding:0;
+    font-weight: 400;
+    font-size: 15.5px;
+}
+
+
+
+
+
+footer {
+    position: fixed;
+    bottom: 10px;
+    margin: 0;
+    padding: 10px;
+}
