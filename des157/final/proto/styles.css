@@ -91,7 +91,13 @@ body {
     font-size: 15.5px;
 }
 
-
+.show {  /* I want to animate the img moving into place */
+    background-color: blue;
+    position: absolute;
+    transition: all .5s ease-out;
+    top: 800px;
+    left: 800px;
+}
 
 
 
