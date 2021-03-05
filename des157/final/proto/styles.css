@@ -55,7 +55,7 @@ body {
 #eyes {
     top: 30px;
     transform: rotate(30deg);
-    right: 40px;
+    left: 1250px;
     width: 520px;
 }
 #eyes:hover {
@@ -64,7 +64,7 @@ body {
 
 #costco {
     top: 600px;
-    right: 180px;
+    left: 1300px;
     width: 300px; 
 }
 #costco:hover {
@@ -91,15 +91,22 @@ body {
     font-size: 15.5px;
 }
 
-.show {  /* I want to animate the img moving into place */
-    background-color: blue;
+.hidden {
+    visibility: hidden;
     position: absolute;
-    transition: all .5s ease-out;
-    top: 800px;
-    left: 800px;
 }
 
+.show {
+    visibility: visible;
+    position: absolute;
+    top: 300px;
+}
 
+#details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 footer {
     position: fixed;
