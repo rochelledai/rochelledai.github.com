@@ -10,10 +10,17 @@
     let lyrics = document.getElementById("lyrics");
     let deschn = document.getElementById("chn");
     let deseng = document.getElementById("eng");
+    const close = document.getElementById("close");
+    let imghover = document.getElementsByClassName("red");
+    console.log(imghover);
+
+    const chnsong = new Audio('audio/chinesesong.mp3');
+    const englishmp = new Audio('audio/english.mp3');
+    const eyehealth = new Audio('audio/eyehealth.mp3');
 
     things.addEventListener('click', function(e){
         let imgid = e.target; 
-        console.log(imgid);
+        /* console.log(imgid); */
 
         //panning the img
         let toppos = 250;
@@ -47,12 +54,11 @@
             each.style.left = eachleft + varleft + "px";
 
             each.style.opacity = "0.1"; //changes other img to opaque
-            things.style.pointerEvents = "none";  //disables click action
+            each.style.pointerEvents = "none";  //disables click action
         }
 
         //make the descrip appear 
         descrip.className= "show";
-
         switch (imgid.id) {
             case "nurse":
                 destitle.innerHTML="OLD PHOTOS";
@@ -76,6 +82,15 @@
                 <br>
                 Oh... I know how helpless you sing,<br>
                 The long blankness is your silent love for me.`;
+
+                imgid.addEventListener('mouseover', function(e){
+                    
+                    imgid.className = "playbttn";
+                    console.log('hhhh');
+                })
+                imgid.addEventListener('click', function(e){
+                    chnsong.play();
+                })
             break;
             case "english":
                 destitle.innerHTML="ENGLISH LISTENING TEST";
@@ -102,8 +117,28 @@
                 
                 lyrics.className ="hidden";
             break;
-        }
-        
+        };
+
+        close.addEventListener('click', function(e) {
+            descrip.className="hidden";
+            lyrics.className="hidden";
+            
+            let objects = things.querySelectorAll('img');
+            for (var each of objects) { //moves back to original posiiton
+                let eachstyles = window.getComputedStyle(each);
+                let eachtop = eachstyles.getPropertyValue('top');
+                let eachleft = eachstyles.getPropertyValue('left');
+                eachtop = parseInt(eachtop, 10); //converts to number
+                eachleft = parseInt(eachleft, 10);
+    
+                each.style.top = eachtop - vartop + "px"; //moves using the same amount "panning"
+                each.style.left = eachleft - varleft + "px";
+
+                each.style.opacity = "1";
+                each.style.pointerEvents = "all";  //enables click action
+            }
+        });
+
 
     });
 
