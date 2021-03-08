@@ -132,6 +132,8 @@
             };
             
             //DOESNT WORK IF YOU PLAY, PAUSE, THEN TRY TO CLOSE??????????????? IT LOOPS, BUT VARTOP/VARLEFT TURN TO 0???????
+            //DOESNT WORK IF PLAY, THEN CLOSE EITHER. 
+            //WORKS WHEN OPEN, CLOSE, OPEN, PLAY, CLOSE?????
             let objects = things.querySelectorAll('img');
             for (let each of objects) { //moves back to original posiiton
                 let eachstyles = window.getComputedStyle(each);
@@ -155,8 +157,11 @@
 
         //changese cursor for audio
         function playpause(song){
-            if (isPlaying(song) === false) {
-                imgid.className = "playbttn"; //change to play cursor is song isnt playing
+
+            //MAYBE USE A WHILE LOOP, CONSTANTLY CHECKING AUDIO PLAYING??????????????
+
+            if (isPlaying(song) === false) { //if nothing is playing,
+                imgid.className = "playbttn"; //change to play cursor
 
                 imgid.addEventListener('click', function(e){ //cursor changes to pause when music starts
                     song.play();
@@ -166,9 +171,10 @@
                 imgid.className = "pausebttn"
                 imgid.addEventListener('click', function(e){
                     song.pause();
-                    imgid.className = "playbttn"; //once paused, cursor changes back to play
+                    imgid.className = "playbttn"; //once paused, cursor changes back to play *redundant?
                 });
             };
+            
         };
 
         //checks if audio is currently playing
