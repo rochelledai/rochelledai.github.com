@@ -37,13 +37,12 @@
 
         imgid.style.top = targettop + vartop + "px";
         imgid.style.left = targetleft + varleft + "px";
-        //imgid.style.width = "700px"; //width based on each img
 
 
         //other imgs move away-- selecting all the other imgs
         let otherimg = document.querySelectorAll(`#container > :not(#${imgid.id})`);
         
-        for (var each of otherimg) { //loops through each "other" img
+        for (let each of otherimg) { //loops through each "other" img
             let eachstyles = window.getComputedStyle(each);
             let eachtop = eachstyles.getPropertyValue('top');
             let eachleft = eachstyles.getPropertyValue('left');
@@ -55,7 +54,7 @@
 
             each.style.opacity = "0.1"; //changes other img to opaque
             each.style.pointerEvents = "none";  //disables click action
-        }
+        };
 
         //make the descrip appear 
         descrip.className= "show";
@@ -65,6 +64,7 @@
                 desdate.innerHTML="1980's, BEIJING, CHINA";
                 desbody.innerHTML="Shortly after middle school, my mother attended a vocational school where she practiced nursing for 5 years.";
                 lyrics.className ="hidden";
+                imgid.style.pointerEvents = "none";
             break;
             case "cd":
                 destitle.innerHTML="BLANK AUDIO CASSETTES (空白錄音帶）by Shelly Yu (于台烟)";
@@ -83,14 +83,8 @@
                 Oh... I know how helpless you sing,<br>
                 The long blankness is your silent love for me.`;
 
-                imgid.addEventListener('mouseover', function(e){
-                    
-                    imgid.className = "playbttn";
-                    console.log('hhhh');
-                })
-                imgid.addEventListener('click', function(e){
-                    chnsong.play();
-                })
+                imgid.addEventListener('mouseover', playpause(chnsong)); //playing audio and changing cursor
+                
             break;
             case "english":
                 destitle.innerHTML="ENGLISH LISTENING TEST";
@@ -100,6 +94,8 @@
                 lyrics.className ="show";
                 deschn.innerHTML= `WOMAN: What else do we need?<br><br>MAN: A gallon of milk, two pounds of steak, a loaf of bread, and a chocolate cake!`;
                 deseng.innerHTML= ``;
+
+                imgid.addEventListener('mouseover', playpause(englishmp));
             break;
             case "eyes":
                 destitle.innerHTML="EXERCISES FOR EYE HEALTH (眼保操磁带)";
@@ -109,43 +105,76 @@
                 lyrics.className ="show";
                 deschn.innerHTML= `保护，视力预防近视，眼宝健康。`;
                 deseng.innerHTML= `Protecting your vision, preventing myopia, and treasuring your eye health.`;
+
+                imgid.addEventListener('mouseover', playpause(eyehealth));
             break;
             case "costco":
                 destitle.innerHTML="COSTCO RECEIPT";
                 desdate.innerHTML="2021, CALIFORNIA, USA";
                 desbody.innerHTML="My mother's favorite part of shopping is browsing the sale/clearance sections and snagging the best deals. Recently, we bought ingredients for a charcuterie board, which is something new and western that we had never made before.";
-                
                 lyrics.className ="hidden";
+                imgid.style.pointerEvents = "none";
             break;
         };
 
-        close.addEventListener('click', function(e) {
+
+        //closing the details
+        close.addEventListener('click', function(e) { //WHY IS IT LOOPING 2 EXTRA TIMES??
             descrip.className="hidden";
             lyrics.className="hidden";
+            imgid.className="red";
+
+            if (isPlaying(chnsong ===true || englishmp===true || eyehealth===true)) { //pauses song if they click close
+                console.log('please?');
+                chnsong.pause();
+                englishmp.pause();
+                eyehealth.pause();
+            };
             
+            //DOESNT WORK IF YOU PLAY, PAUSE, THEN TRY TO CLOSE??????????????? IT LOOPS, BUT VARTOP/VARLEFT TURN TO 0???????
             let objects = things.querySelectorAll('img');
-            for (var each of objects) { //moves back to original posiiton
+            for (let each of objects) { //moves back to original posiiton
                 let eachstyles = window.getComputedStyle(each);
                 let eachtop = eachstyles.getPropertyValue('top');
                 let eachleft = eachstyles.getPropertyValue('left');
+
                 eachtop = parseInt(eachtop, 10); //converts to number
                 eachleft = parseInt(eachleft, 10);
-    
-                each.style.top = eachtop - vartop + "px"; //moves using the same amount "panning"
+
+                console.log(vartop, varleft, "help!!!"); //checker
+
+                each.style.top = eachtop - vartop + "px"; //WHY IS IT 0?????????????????????????????
                 each.style.left = eachleft - varleft + "px";
 
                 each.style.opacity = "1";
                 each.style.pointerEvents = "all";  //enables click action
-            }
+            };
         });
 
 
+
+        //changese cursor for audio
+        function playpause(song){
+            if (isPlaying(song) === false) {
+                imgid.className = "playbttn"; //change to play cursor is song isnt playing
+
+                imgid.addEventListener('click', function(e){ //cursor changes to pause when music starts
+                    song.play();
+                });
+            }
+            else {
+                imgid.className = "pausebttn"
+                imgid.addEventListener('click', function(e){
+                    song.pause();
+                    imgid.className = "playbttn"; //once paused, cursor changes back to play
+                });
+            };
+        };
+
+        //checks if audio is currently playing
+        function isPlaying(audelem) { return !audelem.paused; } 
+
     });
-
-    
-
-
-
     
    
 })();
