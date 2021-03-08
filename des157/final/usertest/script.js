@@ -61,8 +61,8 @@
         switch (imgid.id) {
             case "nurse":
                 destitle.innerHTML="OLD PHOTOS";
-                desdate.innerHTML="1980's, BEIJING, CHINA";
-                desbody.innerHTML="Shortly after middle school, my mother attended a vocational school where she practiced nursing for 5 years.";
+                desdate.innerHTML="1994, BEIJING, CHINA";
+                desbody.innerHTML="After two years of highschool, my mother attended a vocational school where she practiced nursing for 5 years.";
                 lyrics.className ="hidden";
                 imgid.style.pointerEvents = "none";
             break;
@@ -99,8 +99,8 @@
             break;
             case "eyes":
                 destitle.innerHTML="EXERCISES FOR EYE HEALTH (眼保操磁带)";
-                desdate.innerHTML="1994, BEIJING, CHINA";
-                desbody.innerHTML="These cassette tapes instruct the listener to follow along and perform massages on their face to improve their eye health. My mother is a health-conscious individual. She enjoys using Chinese herbs and other traditional methods to treat her ailments.";
+                desdate.innerHTML="2003, CALIFORNIA, USA";
+                desbody.innerHTML="After spending 4 years in Michigan, my mother moved to California, where her first job was a Chinese language instructor. She specifically asked her father in China to mail over these cassettes so that she can use them in class.";
                 
                 lyrics.className ="show";
                 deschn.innerHTML= `保护，视力预防近视，眼宝健康。`;
