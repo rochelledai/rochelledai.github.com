@@ -3,7 +3,8 @@
     console.log("reading js");
     
     const things = document.getElementById("container");
-    let descrip = document.getElementById("details"); //descrip text 
+    const nurse = document.getElementById("nurse");
+    let descrip = document.getElementById("details"); 
     let destitle = descrip.querySelector("h2");
     let desdate = descrip.querySelector("h3");
     let desbody = descrip.querySelector("p");
@@ -12,51 +13,83 @@
     let deseng = document.getElementById("eng");
     const close = document.getElementById("close");
     let imghover = document.getElementsByClassName("red");
-    console.log(imghover);
+    let objects = things.querySelectorAll('img');
 
     const chnsong = new Audio('audio/chinesesong.mp3');
     const englishmp = new Audio('audio/english.mp3');
     const eyehealth = new Audio('audio/eyehealth.mp3');
 
-    things.addEventListener('click', function(e){
-        let imgid = e.target; 
-        /* console.log(imgid); */
+    //using mouseover listener so that the cursor hover properties can be applied later
+    things.addEventListener('mouseover', function(e) {
+        //if at home position,
+        if (window.getComputedStyle(nurse).getPropertyValue('top') == "100px") {
+            //after closing, sometimes the else condition gets triggered due to the slow transition speed, so this code just makes sure all cursors are back to normal when on the homepage
+            for (let each of objects) {
+                each.className="red";
+            };
+            //pans to specific object + shows description if clicked
+            things.addEventListener('click', homeclick);
+        }
+        //if in specific object view,
+        else {
+            things.removeEventListener('click', homeclick); //removing the first click event to avoid bugs
+            let mainobj = e.target;
+            if (mainobj.id == "cd") {
+                playpause(mainobj, chnsong); //playing audio and changing cursor 
+                clickaudio(mainobj, chnsong); //plays and pauses audio on click
+            }
+            else if (mainobj.id == "english") {
+                playpause(mainobj, englishmp); 
+                clickaudio(mainobj, englishmp);
+            }
+            else if (mainobj.id == "eyes") {
+                playpause(mainobj, eyehealth);
+                clickaudio(mainobj, eyehealth);
+            };
+        }
+    });
 
-        //panning the img
-        let toppos = 250;
+    //close button
+    close.addEventListener('click', closebttn);
+
+    //pans over the imgs and shows descriptions
+    function homeclick(e) {
+        console.log('first click event');
+        let imgid = e.target; 
+        let toppos = 250; //the end position that we want the img to be in
         let leftpos = 200;
 
         let imgstyles = window.getComputedStyle(imgid); //selecting the CSS properties
-        let targettop = imgstyles.getPropertyValue('top');
+        let targettop = imgstyles.getPropertyValue('top'); //getting the current top position
         let targetleft = imgstyles.getPropertyValue('left');
         targettop = parseInt(targettop, 10); //converts to number
         targetleft = parseInt(targetleft, 10);
 
-        let vartop = toppos - targettop; //the number we gonna add/subtract
+        let vartop = toppos - targettop; //finds the difference between the current and end positions
         let varleft = leftpos - targetleft;
 
-        imgid.style.top = targettop + vartop + "px";
+        imgid.style.top = targettop + vartop + "px"; //moving the element using the difference calculated
         imgid.style.left = targetleft + varleft + "px";
 
-
-        //other imgs move away-- selecting all the other imgs
+        //moving all the other imgs
         let otherimg = document.querySelectorAll(`#container > :not(#${imgid.id})`);
-        
-        for (let each of otherimg) { //loops through each "other" img
+        //loops through each "other" img
+        for (let each of otherimg) { 
             let eachstyles = window.getComputedStyle(each);
             let eachtop = eachstyles.getPropertyValue('top');
             let eachleft = eachstyles.getPropertyValue('left');
             eachtop = parseInt(eachtop, 10); //converts to number
             eachleft = parseInt(eachleft, 10);
 
-            each.style.top = eachtop + vartop + "px"; //moves using the same amount "panning"
+            //moves using the same amount of "panning"/difference that was calulated earlier
+            each.style.top = eachtop + vartop + "px"; 
             each.style.left = eachleft + varleft + "px";
 
-            each.style.opacity = "0.1"; //changes other img to opaque
+            each.style.opacity = "0.1"; //changes other imgs to opaque
             each.style.pointerEvents = "none";  //disables click action
         };
 
-        //make the descrip appear 
+        //showing descriptions depending on what object is in view
         descrip.className= "show";
         switch (imgid.id) {
             case "nurse":
@@ -82,9 +115,6 @@
                 <br>
                 Oh... I know how helpless you sing,<br>
                 The long blankness is your silent love for me.`;
-
-                imgid.addEventListener('mouseover', playpause(chnsong)); //playing audio and changing cursor
-                
             break;
             case "english":
                 destitle.innerHTML="ENGLISH LISTENING TEST";
@@ -94,8 +124,6 @@
                 lyrics.className ="show";
                 deschn.innerHTML= `WOMAN: What else do we need?<br><br>MAN: A gallon of milk, two pounds of steak, a loaf of bread, and a chocolate cake!`;
                 deseng.innerHTML= ``;
-
-                imgid.addEventListener('mouseover', playpause(englishmp));
             break;
             case "eyes":
                 destitle.innerHTML="EXERCISES FOR EYE HEALTH (眼保操磁带)";
@@ -105,8 +133,6 @@
                 lyrics.className ="show";
                 deschn.innerHTML= `保护，视力预防近视，眼宝健康。`;
                 deseng.innerHTML= `Protecting your vision, preventing myopia, and treasuring your eye health.`;
-
-                imgid.addEventListener('mouseover', playpause(eyehealth));
             break;
             case "costco":
                 destitle.innerHTML="COSTCO RECEIPT";
@@ -116,71 +142,82 @@
                 imgid.style.pointerEvents = "none";
             break;
         };
+    }
 
+    //closing the details
+    function closebttn(e) {
+        //hiding the description 
+        descrip.className="hidden";
+        lyrics.className="hidden";
 
-        //closing the details
-        close.addEventListener('click', function(e) { //WHY IS IT LOOPING 2 EXTRA TIMES??
-            descrip.className="hidden";
-            lyrics.className="hidden";
-            imgid.className="red";
-
-            if (isPlaying(chnsong ===true || englishmp===true || eyehealth===true)) { //pauses song if they click close
-                console.log('please?');
-                chnsong.pause();
-                englishmp.pause();
-                eyehealth.pause();
-            };
-            
-            //DOESNT WORK IF YOU PLAY, PAUSE, THEN TRY TO CLOSE??????????????? IT LOOPS, BUT VARTOP/VARLEFT TURN TO 0???????
-            //DOESNT WORK IF PLAY, THEN CLOSE EITHER. 
-            //WORKS WHEN OPEN, CLOSE, OPEN, PLAY, CLOSE?????
-            let objects = things.querySelectorAll('img');
-            for (let each of objects) { //moves back to original posiiton
-                let eachstyles = window.getComputedStyle(each);
-                let eachtop = eachstyles.getPropertyValue('top');
-                let eachleft = eachstyles.getPropertyValue('left');
-
-                eachtop = parseInt(eachtop, 10); //converts to number
-                eachleft = parseInt(eachleft, 10);
-
-                console.log(vartop, varleft, "help!!!"); //checker
-
-                each.style.top = eachtop - vartop + "px"; //WHY IS IT 0?????????????????????????????
-                each.style.left = eachleft - varleft + "px";
-
-                each.style.opacity = "1";
-                each.style.pointerEvents = "all";  //enables click action
-            };
-        });
-
-
-
-        //changese cursor for audio
-        function playpause(song){
-
-            //MAYBE USE A WHILE LOOP, CONSTANTLY CHECKING AUDIO PLAYING??????????????
-
-            if (isPlaying(song) === false) { //if nothing is playing,
-                imgid.className = "playbttn"; //change to play cursor
-
-                imgid.addEventListener('click', function(e){ //cursor changes to pause when music starts
-                    song.play();
-                });
-            }
-            else {
-                imgid.className = "pausebttn"
-                imgid.addEventListener('click', function(e){
-                    song.pause();
-                    imgid.className = "playbttn"; //once paused, cursor changes back to play *redundant?
-                });
-            };
-            
+        //pauses song if they click close
+        if (isPlaying(chnsong ===false || englishmp===false || eyehealth===false)) { 
+            chnsong.pause();
+            chnsong.currentTime = 0; //resets the audio to the start
+            englishmp.pause();
+            englishmp.currentTime = 0;
+            eyehealth.pause();
+            eyehealth.currentTime = 0;
         };
 
-        //checks if audio is currently playing
-        function isPlaying(audelem) { return !audelem.paused; } 
+        //using the original css positition of the "nurse" img as a reference to figure out how much to shift the imgs. my first idea was to call the homeclick function and reuse the same vartop and varleft, but apparently that function is unable to return values from a click event listener 
+        let toppos = 100; 
+        let leftpos = 70;
 
-    });
+        let imgstyles = window.getComputedStyle(nurse); //selecting the current CSS values of nurse img
+        let currenttop = imgstyles.getPropertyValue('top');
+        let currentleft = imgstyles.getPropertyValue('left');
+        currenttop = parseInt(currenttop, 10); //converts to number
+        currentleft = parseInt(currentleft, 10);
+
+        let vartop = currenttop - toppos; //computing the difference in position 
+        let varleft = currentleft - leftpos;
+
+        //moves imgs back to original posiiton
+        for (let each of objects) { 
+            let eachstyles = window.getComputedStyle(each); //selecting the current CSS
+            let eachtop = eachstyles.getPropertyValue('top');
+            let eachleft = eachstyles.getPropertyValue('left');
+            eachtop = parseInt(eachtop, 10); //converts to number
+            eachleft = parseInt(eachleft, 10);
+
+            each.style.top = eachtop - vartop + "px"; //moving the img
+            each.style.left = eachleft - varleft + "px";
+
+            each.style.opacity = "1"; 
+            each.style.pointerEvents = "all";  //enables click action
+            each.className="red";  //revert cursor back to normal
+        };
+    }
+
+    //changes cursor for audio
+    function playpause(mainobj, song){
+        if (isPlaying(song) === false) { //if audio is playing,
+            mainobj.className = "playbttn"; //change to play cursor
+        }
+        else {
+            mainobj.className = "pausebttn"
+        };
+    }
+
+    //plays or pauses audio
+    function clickaudio(mainobj, song){
+        //if the cursor is a play button (basically the music is paused)
+        if (mainobj.className == 'playbttn') {
+            //prevents the mouseover event listener by using anonymous function
+            mainobj.addEventListener('click', function(e) { 
+                song.play();
+            });
+        }
+        else if (mainobj.className=='pausebttn') { 
+            //if user clicks the specific object, pause
+            mainobj.addEventListener('click', function(e) {
+                song.pause();
+            })
+        };
+    }
+
+    //checks if audio is currently playing
+    function isPlaying(audelem) { return !audelem.paused; } 
     
-   
 })();
