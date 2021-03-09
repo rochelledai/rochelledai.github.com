@@ -11,7 +11,7 @@ body {
 /* red thumbnails */
 .red {
     position: absolute;
-    width: 300px;
+    width: 200px;
     transition: all .5s ease-out;
     -webkit-filter: drop-shadow(5px 5px 5px rgba(255,0,0,0.45));
     filter: drop-shadow(0px 5px 5px rgba(255,0,0,0.45));
@@ -19,57 +19,58 @@ body {
 .red:hover{
     width: 325px;
     cursor: crosshair;
-    
 }
 
 /* individual casette positions */
 #nurse {
-    top: 100px;
-    left: 70px;
+    top: 60px;
+    left: 50px;
     transform: rotate(20deg);
-    width: 600px;
+    width: 420px;
 }
 #nurse:hover {
-    width: 630px;
-}
-
-#cd {
-    top: 610px;
-    transform: rotate(-10deg);
-    left: 120px;
-    width: 490px;
-}
-#cd:hover{
-    width: 520px;
-}
-
-#english {
-    top: 320px;
-    left: 690px;
     width: 460px;
 }
 
+#cd {
+    top: 470px;
+    transform: rotate(-10deg);
+    left: 100px;
+    width: 350px;
+}
+#cd:hover{
+    width: 400px;
+}
+
+#english {
+    top: 230px;
+    left: 500px;
+    width: 340px;
+}
+
 #english:hover {
-    width: 490px; 
+    width: 370px; 
 }
 
 #eyes {
-    top: 30px;
+    top: 50px;
     transform: rotate(30deg);
-    left: 1250px;
-    width: 520px;
+    left: 930px;
+    width: 370px;
+    padding-left: 20px;
 }
 #eyes:hover {
-    width: 540px;
+    width: 400px;
 }
 
 #costco {
-    top: 600px;
-    left: 1300px;
-    width: 300px; 
+    top: 480px;
+    left: 830px;
+    width: 240px;
+    padding-left: 90px; 
 }
 #costco:hover {
-    width: 330px;
+    width: 280px;
 }
 
 
@@ -83,13 +84,14 @@ body {
     text-align: center;
 }
 #text h1{
-    margin: 50px 0 0 0;
+    margin: 40px 0 0 0;
+    font-size: 25px;
 }
 #text p {
     margin: 0;
     padding:0;
     font-weight: 400;
-    font-size: 15.5px;
+    font-size: 12px;
 }
 
 /* the text class */
@@ -106,13 +108,13 @@ body {
     transition: opacity 1s linear;
 }
 
-/* text descriptions */
+/* close button */
 #close {
     width: 25px;
     height: 25px;
     position: absolute;
     top: 20px;
-    right: -100px;
+    right: -80px;
     padding: 15px;
     margin: 0;
     border-radius: 50%;
@@ -124,21 +126,24 @@ body {
     background-color: rgba(71, 41, 255, 0.2);
 }
 
+/* text decriptions */
 #details {
     position: absolute;
-    top: 300px;
+    top: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0px 0px 0px 400px;
+    margin: 0px 0px 0px 300px;
     padding: 0;
-    width: 670px;
+    width: 550px;
 }
 #details h2 {
     margin-bottom: 8px;
+    font-size: 20px;
 }
 #details h3 {
     margin: 0;
+    font-size: 16px;
     font-weight: 400;
     font-style: italic;
 }
@@ -146,12 +151,12 @@ body {
     width: 100%;
     height: 1px;
     background-color: blue;
-    margin: 20px 0px 5px;
+    margin: 15px 0px 3px;
 }
 #details p {
     font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 16px;
+    line-height: 20px;
 }
 
 #lyrics {
@@ -164,12 +169,12 @@ body {
     padding: 5px 20px;
 }
 #chn, #eng {
-    width: 330px;
+    width: 300px;
 }
 #lyrics #eng {
-    font-size: 16px;
+    font-size: 14px;
     letter-spacing: -1.5px;
-    line-height: 18px;
+    line-height: 16px;
 }
 .playbttn { /* duplicate bc need to alter hover property */
     position: absolute;
@@ -200,4 +205,108 @@ footer {
     bottom: 10px;
     margin: 0;
     padding: 10px;
+    font-size: 12px;
 }
+
+
+/* if on windows (not mac), enlarges and repositions items */
+@media only screen and (min-width: 1366px) {
+    #nurse {
+        top: 60px;
+        left: 50px;
+        width: 600px;
+        padding-left: 20px;
+    }
+    #nurse:hover {
+        width: 630px;
+    }
+    
+    #cd {
+        top: 610px;
+        left: 20px;
+        width: 490px;
+        padding-left: 100px;
+    }
+    #cd:hover{
+        width: 520px;
+    }
+    
+    #english {
+        top: 320px;
+        left: 590px;
+        width: 460px;
+        padding-left: 100px;
+    }
+    
+    #english:hover {
+        width: 490px; 
+    }
+    
+    #eyes {
+        top: 30px;
+        left: 1200px;
+        width: 520px;
+        padding-left: 70px;
+    }
+    #eyes:hover {
+        width: 540px;
+    }
+    
+    #costco {
+        top: 600px;
+        left: 1150px;
+        width: 300px; 
+        padding-left: 200px;
+    }
+    #costco:hover {
+        width: 330px;
+    }
+
+    #details {
+        position: absolute;
+        top: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0px 0px 0px 400px;
+        padding: 0;
+        width: 670px;
+    }
+    #details h2 {
+        margin-bottom: 8px;
+    }
+    #details h3 {
+        margin: 0;
+        font-weight: 400;
+        font-style: italic;
+    }
+    #line {
+        width: 100%;
+        height: 1px;
+        background-color: blue;
+        margin: 20px 0px 5px;
+    }
+    #details p {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 24px;
+    }
+    
+    #lyrics {
+        background-color: rgba(71, 41, 255, 0.07);
+        border: 1px solid #4729FF;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 5px 20px;
+    }
+    #chn, #eng {
+        width: 330px;
+    }
+    #lyrics #eng {
+        font-size: 16px;
+        letter-spacing: -1.5px;
+        line-height: 18px;
+    }
+  }

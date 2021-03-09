@@ -1,10 +1,10 @@
 (function(){
     "use strict";
     console.log("reading js");
-    alert(`Hello! Thank you for testing my site. Please try to perform these 3 tasks:
+    /* alert(`Hello! Thank you for testing my site. Please try to perform these 3 tasks:
             1. Listen to one of the audio tapes
             2. Pause the audio
-            3. Navigate to the old photos`);
+            3. Navigate to the old photos`); */
     
     const things = document.getElementById("container");
     const nurse = document.getElementById("nurse");
@@ -26,7 +26,7 @@
     //using mouseover listener so that the cursor hover properties can be applied later
     things.addEventListener('mouseover', function(e) {
         //if at home position,
-        if (window.getComputedStyle(nurse).getPropertyValue('top') == "100px") {
+        if (window.getComputedStyle(nurse).getPropertyValue('top') == "60px") {
             //after closing, sometimes the else condition gets triggered due to the slow transition speed, so this code just makes sure all cursors are back to normal when on the homepage
             for (let each of objects) {
                 each.className="red";
@@ -60,8 +60,8 @@
     function homeclick(e) {
         console.log('first click event');
         let imgid = e.target; 
-        let toppos = 250; //the end position that we want the img to be in
-        let leftpos = 200;
+        let toppos = 190; //the end position that we want the img to be in
+        let leftpos = 110;
 
         let imgstyles = window.getComputedStyle(imgid); //selecting the CSS properties
         let targettop = imgstyles.getPropertyValue('top'); //getting the current top position
@@ -165,8 +165,8 @@
         };
 
         //using the original css positition of the "nurse" img as a reference to figure out how much to shift the imgs. my first idea was to call the homeclick function and reuse the same vartop and varleft, but apparently that function is unable to return values from a click event listener 
-        let toppos = 100; 
-        let leftpos = 70;
+        let toppos = 60; 
+        let leftpos = 50;
 
         let imgstyles = window.getComputedStyle(nurse); //selecting the current CSS values of nurse img
         let currenttop = imgstyles.getPropertyValue('top');
