@@ -1,13 +1,19 @@
 (function(){
     "use strict";
     console.log("reading js");
-    alert(`Hello! Thank you for testing my site. Please try to perform these 3 tasks:
+    /* alert(`Hello! Thank you for testing my site. Please try to perform these 3 tasks:
             1. Listen to one of the audio tapes
             2. Pause the audio
-            3. Navigate to the old photos`);
+            3. Navigate to the old photos`); */
     
     const things = document.getElementById("container");
-    const nurse = document.getElementById("nurse");
+
+    let nurse = document.getElementById("nurse");
+    let cd = document.getElementById("cd");
+    let english = document.getElementById("english");
+    let eyes = document.getElementById("eyes");
+    let costco = document.getElementById("costco");
+
     let descrip = document.getElementById("details"); 
     let destitle = descrip.querySelector("h2");
     let desdate = descrip.querySelector("h3");
@@ -16,31 +22,41 @@
     let deschn = document.getElementById("chn");
     let deseng = document.getElementById("eng");
     const close = document.getElementById("close");
-    let imghover = document.getElementsByClassName("red");
+    //let imghover = document.getElementsByClassName("red");
     let objects = things.querySelectorAll('img');
 
     const chnsong = new Audio('audio/chinesesong.mp3');
     const englishmp = new Audio('audio/english.mp3');
     const eyehealth = new Audio('audio/eyehealth.mp3');
 
-    //using mouseover listener so that the cursor hover properties can be applied later
-    things.addEventListener('mouseover', function(e) {
-        //if at home position,
-        if (window.getComputedStyle(nurse).getPropertyValue('top') == "60px") {
-            //after closing, sometimes the else condition gets triggered due to the slow transition speed, so this code just makes sure all cursors are back to normal when on the homepage
-            for (let each of objects) {
-                each.className="red";
-            };
-            //pans to specific object + shows description if clicked
+    let home = true; //true means that the page is in home position. 
+    let nurseobj = false;
+    let cdobj = false;
+    let engobj = false;
+    let eyeobj = false;
+    let costcoobj = false;
+
+
+
+
+
+    //using mouseover listener so that it checks everytime the mouse moves?
+    things.addEventListener('mouseover', mouseevent); 
+
+    //close button
+    close.addEventListener('click', closebttn);
+
+    function mouseevent(e){
+        if (home==true) {
             things.addEventListener('click', homeclick);
         }
         //if in specific object view,
-        else {
+        else if (home==false) {
             things.removeEventListener('click', homeclick); //removing the first click event to avoid bugs
             let mainobj = e.target;
             if (mainobj.id == "cd") {
-                playpause(mainobj, chnsong); //playing audio and changing cursor 
-                clickaudio(mainobj, chnsong); //plays and pauses audio on click
+                playpause(mainobj, chnsong);
+                clickaudio(mainobj, chnsong);
             }
             else if (mainobj.id == "english") {
                 playpause(mainobj, englishmp); 
@@ -51,14 +67,11 @@
                 clickaudio(mainobj, eyehealth);
             };
         }
-    });
-
-    //close button
-    close.addEventListener('click', closebttn);
+    }
 
     //pans over the imgs and shows descriptions
     function homeclick(e) {
-        console.log('first click event');
+        console.log('first click event, homeclick');
         let imgid = e.target; 
         let toppos = 190; //the end position that we want the img to be in
         let leftpos = 110;
@@ -102,6 +115,7 @@
                 desbody.innerHTML="After two years of highschool, my mother attended a vocational school where she practiced nursing for 5 years.";
                 lyrics.className ="hidden";
                 imgid.style.pointerEvents = "none";
+                nurseobj = true;
             break;
             case "cd":
                 destitle.innerHTML="BLANK AUDIO CASSETTES (空白錄音帶）by Shelly Yu (于台烟)";
@@ -119,6 +133,7 @@
                 <br>
                 Oh... I know how helpless you sing,<br>
                 The long blankness is your silent love for me.`;
+                cdobj=true;
             break;
             case "english":
                 destitle.innerHTML="ENGLISH LISTENING TEST";
@@ -128,6 +143,7 @@
                 lyrics.className ="show";
                 deschn.innerHTML= `WOMAN: What else do we need?<br><br>MAN: A gallon of milk, two pounds of steak, a loaf of bread, and a chocolate cake!`;
                 deseng.innerHTML= ``;
+                engobj=true;
             break;
             case "eyes":
                 destitle.innerHTML="EXERCISES FOR EYE HEALTH (眼保操磁带)";
@@ -137,6 +153,7 @@
                 lyrics.className ="show";
                 deschn.innerHTML= `保护，视力预防近视，眼宝健康。`;
                 deseng.innerHTML= `Protecting your vision, preventing myopia, and treasuring your eye health.`;
+                eyeobj=true;
             break;
             case "costco":
                 destitle.innerHTML="COSTCO RECEIPT";
@@ -144,8 +161,12 @@
                 desbody.innerHTML="My mother's favorite part of shopping is browsing the sale/clearance sections and snagging the best deals. Recently, we bought ingredients for a charcuterie board, which is something new and western that we had never made before.";
                 lyrics.className ="hidden";
                 imgid.style.pointerEvents = "none";
+                costcoobj=true;
             break;
         };
+
+        home = false; //no longer at home position, so change value to False
+        console.log(`expanded object, ${home}`);
     }
 
     //closing the details
@@ -192,16 +213,25 @@
             each.style.pointerEvents = "all";  //enables click action
             each.className="red";  //revert cursor back to normal
         };
+
+        home = true; //going back to home position, so it is True
+        console.log(`closed, ${home}`);
     }
 
     //changes cursor for audio
     function playpause(mainobj, song){
-        if (isPlaying(song) === false) { //if audio is playing,
-            mainobj.className = "playbttn"; //change to play cursor
+        if (isPlaying(song)==false){
+            mainobj.className="playbttn";
+            //ONLY WORKS IF THE FUNCTION IS ANONYMOUS. BUT ALSO ERROR BC MULTIPLE CLICK EVENTS. HOW TO FIX???
+            /* mainobj.addEventListener('click', function(e){
+                song.play();
+                mainobj.className = "pausebttn";
+                //playpause(mainobj, song);
+            }); */
         }
         else {
-            mainobj.className = "pausebttn"
-        };
+            mainobj.className="pausebttn";  
+        }
     }
 
     //plays or pauses audio
@@ -223,5 +253,13 @@
 
     //checks if audio is currently playing
     function isPlaying(audelem) { return !audelem.paused; } 
+
+    function playaudio(song) {
+        song.play();
+    }
+    function pauseaudio(song) {
+        song.pause();
+    }
+    
     
 })();
