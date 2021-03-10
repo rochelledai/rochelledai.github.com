@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+    <link href="styles2.css" rel="stylesheet">
+    <title>User Testing Results</title>
+</head>
+<body>
+    <h1>User Testing Results</h1>
+    <div></div>
+    <section>
+        <article>
+            <h2>Finding #1</h2>
+            <p>The content did not display on screen correctly. Each person had a different screen size, and some of the images were cut off as a result. This is problematic because it makes some objects inaccessible, and the design feels cluttered or messy. Users would say, “Oh I didn’t even know this was a clickable image” because a majority of it was cut off and not visible on screen. Below is a screenshot of a user’s screen during the testing, which shows the viewport issue. The text starts to overlap the image on the left, which makes some text illegible. This ended up discouraging users from fully reading the descriptions. The very last user had a macbook and the site displayed correctly because the viewport was 1366x768px.</p>
+        </article>
+
+        <article>
+            <h2>Finding #2</h2>
+            <p>Users did not immediately recognize that clicking certain objects produces audio. First, users would click on an object, then read the description for a bit. Then, they would start to mouse around and sort of accidentally hover over the object again, after which, they notice the play button cursor that appears. Then they say, “Oh that’s how you play audio”. One user said that if the initial alert notification at the beginning of the test had not mentioned audio, they would have never known to click the object to produce sound. Another user shared the same sentiment about not realizing that certain objects have audio, but others don't.</p>
+        </article>
+        
+        <article>
+            <h2>Finding #3</h2>
+            <p>Users struggled to pause the audio. Due to my difficulties with coding, the user must move the mouse out then back over the image in order to be able to click and pause the audio. Users would hover over the image, click the image to start playing the audio, then would repeatedly try to click again in order to pause the audio. However, pausing wouldn’t work, so they would move the mouse a bit then see that the cursor had changed to a pause icon and feel relieved. The current mode of playing and pausing the audio does not follow the users’ mental models and is difficult to use.</p>
+        </article>
+    </section>
+    
+    
+    <img src="images/usertesting.jpg" alt="screenshot of user testing">
+    
+    <h2>Plans</h2>
+    <p id="plans">To remedy the problem of my site looking different on other laptops, I plan on changing the position and width of the elements to percentages instead of pixels. One of the users recommended using percentages because he has two monitors, and each have different pixels, so that is an unreliable mode of positioning the content.<br><br>
+    To make the audio feature more obvious, I plan on making the audio play automatically upon clicking on the object, so that users know that it is available. Then, users have the option to pause or play the audio. When I asked users for their thoughts on this, they told me that it would improve the experience, but wouldn’t tremendously take it to the next level.<br><br>
+    I plan on rewriting my code so that the play and pause button for the audio works on click, without users having to mouse their mouse. I have been struggling a lot with this part of the project, but will try my best to find a workaround in order to create a more fluid experience.</p>
+
+    <div></div>
+    <footer>
+        <a href="https://validator.w3.org/check?uri=referer">Valid HTML 5</a>
+        <a href="https://jigsaw.w3.org/css-validator/check/referer">Valid CSS</a>
+    </footer>
+
+</body>
+</html>
