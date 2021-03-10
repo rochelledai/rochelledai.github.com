@@ -1,10 +1,10 @@
 (function(){
     "use strict";
     console.log("reading js");
-    /* alert(`Hello! Thank you for testing my site. Please try to perform these 3 tasks:
+    alert(`Hello! Thank you for testing my site. Please try to perform these 3 tasks:
             1. Listen to one of the audio tapes
             2. Pause the audio
-            3. Navigate to the old photos`); */
+            3. Navigate to the old photos`);
     
     const things = document.getElementById("container");
 
