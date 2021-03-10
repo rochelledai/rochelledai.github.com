@@ -37,9 +37,6 @@
     let costcoobj = false;
 
 
-
-
-
     //using mouseover listener so that it checks everytime the mouse moves?
     things.addEventListener('mouseover', mouseevent); 
 
@@ -56,15 +53,15 @@
             let mainobj = e.target;
             if (mainobj.id == "cd") {
                 playpause(mainobj, chnsong);
-                clickaudio(mainobj, chnsong);
+                //clickaudio(mainobj, chnsong);
             }
             else if (mainobj.id == "english") {
                 playpause(mainobj, englishmp); 
-                clickaudio(mainobj, englishmp);
+                //clickaudio(mainobj, englishmp);
             }
             else if (mainobj.id == "eyes") {
                 playpause(mainobj, eyehealth);
-                clickaudio(mainobj, eyehealth);
+                //clickaudio(mainobj, eyehealth);
             };
         }
     }
@@ -232,13 +229,14 @@
         else {
             mainobj.className="pausebttn";  
         }
+        clickaudio(mainobj, song);
     }
 
     //plays or pauses audio
     function clickaudio(mainobj, song){
         //if the cursor is a play button (basically the music is paused)
         if (mainobj.className == 'playbttn') {
-            //prevents the mouseover event listener by using anonymous function
+            //USER HAS TO MOVE MOUSE IN ORDER TO CLICK AGAIN????
             mainobj.addEventListener('click', function(e) { 
                 song.play();
             });
@@ -253,13 +251,6 @@
 
     //checks if audio is currently playing
     function isPlaying(audelem) { return !audelem.paused; } 
-
-    function playaudio(song) {
-        song.play();
-    }
-    function pauseaudio(song) {
-        song.pause();
-    }
     
     
 })();
