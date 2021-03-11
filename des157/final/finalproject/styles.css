@@ -1,0 +1,312 @@
+body {
+    background-image: url(images/wallpaper.jpg);
+    overflow: hidden;
+    position: relative;
+    font-family: 'DM Mono', monospace;
+    color: blue;
+    display: flex;
+    justify-content: center;
+}
+
+/* red thumbnails */
+.red {
+    position: absolute;
+    width: 200px;
+    transition: all .5s ease-out;
+    -webkit-filter: drop-shadow(5px 5px 5px rgba(255,0,0,0.45));
+    filter: drop-shadow(0px 5px 5px rgba(255,0,0,0.45));
+}
+.red:hover{
+    width: 325px;
+    cursor: crosshair;
+}
+
+/* individual casette positions */
+#nurse {
+    top: 60%;
+    left: 3%;
+    transform: rotate(20deg);
+    width: 33%;
+}
+#nurse:hover {
+    width: 36%;
+}
+
+#cd {
+    top: 570%;
+    transform: rotate(-10deg);
+    left: 7%;
+    width: 26%;
+}
+#cd:hover{
+    width: 29%;
+}
+
+#english {
+    top: 280%;
+    left: 38%;
+    width: 25%;
+}
+
+#english:hover {
+    width: 27%; 
+}
+
+#eyes {
+    top: 20%;
+    transform: rotate(30deg);
+    left: 67%;
+    width: 26%;
+    padding-left: 2%;
+}
+#eyes:hover {
+    width: 29%;
+}
+
+#costco {
+    top: 550%;
+    left: 62%;
+    width: 18%;
+    padding-left: 7%; 
+}
+#costco:hover {
+    width: 20%;
+}
+
+
+/* heading at the top */
+#text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 20%;
+    text-align: center;
+}
+#text h1{
+    margin: 40px 0 0 0;
+    font-size: 25px;
+}
+#text p {
+    margin: 0;
+    padding:0;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+/* the text class */
+.hidden {
+    visibility: hidden;
+    /* fade out */
+    opacity: 0;
+    transition: visibility 0s 0.2s, opacity 0.2s linear; 
+}
+.show {
+    visibility: visible;
+    /* fade in */
+    opacity: 1;
+    transition: opacity 1s linear;
+}
+
+/* close button */
+#close {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 20px;
+    right: -80px;
+    padding: 15px;
+    margin: 0;
+    border-radius: 50%;
+    border: 1px solid #4729FF;
+    background-color: transparent;
+    transition: all .5s ease-out;
+}
+#close:hover {
+    background-color: rgba(71, 41, 255, 0.2);
+}
+
+/* text decriptions */
+#details {
+    position: absolute;
+    top: 250%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0px 0px 0px 20%;
+    padding: 0;
+    width: 40%;
+}
+#details h2 {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+#details h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+}
+#line {
+    width: 100%;
+    height: 1px;
+    background-color: blue;
+    margin: 15px 0px 3px;
+}
+#details p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+#lyrics {
+    background-color: rgba(71, 41, 255, 0.07);
+    border: 1px solid #4729FF;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px 20px;
+}
+#chn, #eng {
+    width: 50%;
+}
+#lyrics #eng {
+    font-size: 14px;
+    letter-spacing: -1.5px;
+    line-height: 16px;
+}
+.playbttn { /* duplicate bc need to alter hover property */
+    position: absolute;
+    width: 300px;
+    transition: all .5s ease-out;
+    -webkit-filter: drop-shadow(5px 5px 5px rgba(255,0,0,0.45));
+    filter: drop-shadow(0px 5px 5px rgba(255,0,0,0.45));
+}
+.playbttn:hover {
+    width: 325px;
+    cursor: url('images/playcurs.png'), auto;
+}
+.pausebttn { /* duplicate bc need to alter hover property */
+    position: absolute;
+    width: 300px;
+    transition: all .5s ease-out;
+    -webkit-filter: drop-shadow(5px 5px 5px rgba(255,0,0,0.45));
+    filter: drop-shadow(0px 5px 5px rgba(255,0,0,0.45));
+}
+.pausebttn:hover {
+    width: 325px;
+    cursor: url('images/pause.png'), auto;
+}
+
+
+footer {
+    position: fixed;
+    bottom: 10px;
+    margin: 0;
+    padding: 10px;
+    font-size: 12px;
+}
+
+
+/* if on windows (not mac), enlarges and repositions items */
+@media only screen and (min-width: 1366px) {
+    #nurse {
+        top: 60%;
+        left: 3%;
+        width: 30%;
+        padding-left: 5%;
+    }
+    #nurse:hover {
+        width: 31.5%;
+    }
+    
+    #cd {
+        top: 720%;
+        left: 1%;
+        width: 26%;
+        padding-left: 5%;
+    }
+    #cd:hover{
+        width: 27.5%;
+    }
+    
+    #english {
+        top: 360%;
+        left: 33%;
+        width: 24%;
+        padding-left: 5%;
+    }
+    
+    #english:hover {
+        width: 25.5%; 
+    }
+    
+    #eyes {
+        top: 20%;
+        left: 64%;
+        width: 25%;
+        padding-left: 7%;
+    }
+    #eyes:hover {
+        width: 26.5%;
+    }
+    
+    #costco {
+        top: 740%;
+        left: 58%;
+        width: 17%; 
+        padding-left: 12%;
+    }
+    #costco:hover {
+        width: 18.5%;
+    }
+
+    #details {
+        position: absolute;
+        top: 370%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0px 0px 0px 18%;
+        padding: 0;
+        width: 37%;
+    }
+    #details h2 {
+        margin-bottom: 8px;
+    }
+    #details h3 {
+        margin: 0;
+        font-weight: 400;
+        font-style: italic;
+    }
+    #line {
+        width: 100%;
+        height: 1px;
+        background-color: blue;
+        margin: 20px 0px 5px;
+    }
+    #details p {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 24px;
+    }
+    
+    #lyrics {
+        background-color: rgba(71, 41, 255, 0.07);
+        border: 1px solid #4729FF;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 5px 20px;
+    }
+    #chn, #eng {
+        width: 50%;
+    }
+    #lyrics #eng {
+        font-size: 16px;
+        letter-spacing: -1.5px;
+        line-height: 18px;
+    }
+  }
