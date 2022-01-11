@@ -17,6 +17,7 @@
             body.className = 'switch';
             daybanner.className = 'switch';
             button.className = 'switch';
+            button.innerHTML="switch to daydream";
             for (const section of sections) {
                 section.className = 'switch';
             }
@@ -37,6 +38,7 @@
             body.removeAttribute('class');
             daybanner.removeAttribute('class');
             button.removeAttribute('class');
+            button.innerHTML="switch to reality";
             for (const section of sections) {
                 section.removeAttribute('class');
             }
