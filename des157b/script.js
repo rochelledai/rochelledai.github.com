@@ -35,10 +35,10 @@
             }
             mode = 'reality';
         } else {
+            button.innerHTML="switch to reality";
             body.removeAttribute('class');
             daybanner.removeAttribute('class');
             button.removeAttribute('class');
-            button.innerHTML="switch to reality";
             for (const section of sections) {
                 section.removeAttribute('class');
             }
