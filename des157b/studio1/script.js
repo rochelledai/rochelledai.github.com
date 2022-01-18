@@ -16,8 +16,11 @@
 
     myVideo.addEventListener('playing', function(){
         loading.className='hide';
-        instruct.className='show';
     });
+
+    window.addEventListener('load', function(){
+        instruct.className='show';
+    })
 
     instruct.addEventListener('click', function(){
         myAudio.play();

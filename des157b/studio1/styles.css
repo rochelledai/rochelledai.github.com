@@ -57,8 +57,9 @@ h1 a:hover {
 .fa-water, .fa-volume-up {
     font-size: 100px;
 }
-.show h1{
+.show h2{
     font-size: 40px;
+    font-weight: 500;
 }
 
 .hide {
