@@ -1,0 +1,66 @@
+body {
+    position: relative;
+    font-family: 'Stick No Bills', sans-serif;
+}
+
+#myVideo {
+    position: fixed;
+    right:0;
+    bottom:0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+#water {
+    position: fixed;
+    right:0;
+    bottom:0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    opacity: 0%;
+    mix-blend-mode: lighten;
+}
+
+h1 {
+    text-align: center;
+    padding: 35px;
+    font-size: 28px;
+    font-weight: 500;
+    z-index: 1;
+}
+h1 a{
+    color: rgb(0, 27, 117);;
+    text-decoration: none;
+}
+h1 a:hover {
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+}
+
+.show {
+    position: fixed;
+    top:0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 57, 90, 0.438);
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.fa-water, .fa-volume-up {
+    font-size: 100px;
+}
+.show p{
+    font-size: 40px;
+}
+
+.hide {
+    display: none;
+}
