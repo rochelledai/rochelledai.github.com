@@ -25,7 +25,7 @@
     function slowdown(item, index){
         setTimeout(function(){
             time.innerHTML=`${item}`;
-            timehead.style.color = '#faa2b2';
+            timehead.style.color = '#005999';
 
             if (globaldata[item]=='beanbag'){
                 let imgheight = beanbagimg.height;
