@@ -66,8 +66,10 @@
         editBtns[i].addEventListener('click', function(event){
             event.preventDefault();
             editFriendForm.className="edit-friend-onscreen";
-        });
+        })
     };
+
+    console.log(editBtns); //returns an empty list??
 
     editFriendForm.addEventListener('submit', function(event){
         event.preventDefault();
