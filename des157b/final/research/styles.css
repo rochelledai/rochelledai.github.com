@@ -1,0 +1,22 @@
+body {
+    font-family: 'Gudea', sans-serif;
+    margin: 0 10vw;
+}
+header {
+    margin-bottom: -20px;
+    font-style: italic;
+}
+
+article {
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+    padding-top: 50px;
+    
+}
+article > * {
+    flex: 1 1 0;
+}
+h2 a{
+    text-decoration: none;
+}
