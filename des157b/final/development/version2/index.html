@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Sora:wght@300;700&display=swap" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet"/>
+    <script src="script.js" defer></script>
+
+    <link rel="icon" href="data:,">
+
+    <title>Version 1</title>
+</head>
+<body>
+    <section class="content">
+        <article class="left">
+            <h1>Q. 1/4</h1>
+            <h2>Have you experienced racism?</h2>
+            <h1>All responses are anonymous.</h1>
+        </article>
+
+        <form class="right">
+            <input type="button" value="No" id="no">
+            <input type="button" value="Yes" id="yes">
+        </form>
+    </section>
+
+    <section class="content">
+        <article class="left">
+            <h1>Q. 2/4</h1>
+            <h2>When did the incident happen?</h2>
+            <h1>Press "ENTER" to submit.</h1>
+        </article>
+
+        <form class="right" id="2/4">
+            <input type="text" placeholder="ex. 5 years ago" id="time">
+        </form>
+        <p id="next2">NEXT</p>
+    </section>
+
+    <section class="content">
+        <article class="left">
+            <h1>Q. 3/4</h1>
+            <h2>How did you feel <span class="bolded">right after</span> the incident?</h2>
+            <h1>Press "ENTER" to submit a word. Enter up to 6 words.</h1>
+        </article>
+
+        <form class="right">
+            <input type="text" placeholder="ex. helpless" id="rightafter">
+            <h3 class="off" id="p6"></h3>
+            <h3 class="off" id="p5"></h3>
+            <h3 class="off" id="p4"></h3>
+            <h3 class="off" id="p3"></h3>
+            <h3 class="off" id="p2"></h3>
+            <h3 class="off" id="p1"></h3>
+        </form>
+
+        <p id="next3">NEXT</p>
+    </section>
+
+    <section class="content">
+        <article class="left">
+            <h1>Q. 4/4</h1>
+            <h2>How do you feel about the incident<span class="bolded"> now?</span></h2>
+            <h1>Select from previous responses or type in a new one.</h1>
+        </article>
+
+        <form class="right" id="4/4">
+            <input type="text" placeholder="ex. annoyed" id="now">
+            <h3 class="off" id="r6"></h3>
+            <h3 class="off" id="r5"></h3>
+            <h3 class="off" id="r4"></h3>
+            <h3 class="off" id="r3"></h3>
+            <h3 class="off" id="r2"></h3>
+            <h3 class="off" id="r1"></h3>
+        </form>
+        <p id="next4">NEXT</p>
+    </section>
+
+
+
+    <section id="progress">
+        <div id="thick"></div>
+        <div id="thin"></div>
+    </section>
+
+</body>
+</html>
