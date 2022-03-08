@@ -1,0 +1,189 @@
+html {
+    scroll-behavior: smooth;
+    /* overflow: hidden; */
+}
+body {
+    font-family: 'Sora', sans-serif;
+    background-color: #171717;
+    color: white;
+    
+}
+.bolded {
+    font-weight: 700;
+    color: #EA9414;
+}
+h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 1em;
+    padding:0;
+    margin:0;
+    opacity: 40%;
+}
+h2 {
+    font-weight: 300;
+    font-size: 55px;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 76px;
+    line-height: 1.25em;
+    margin: 0;
+    padding: 0;
+    color: #EA9414;
+}
+
+/* new form input */
+input[type=button] {
+    background: none;
+    border: none;
+    text-align: left;
+    color:white;
+    cursor: pointer;
+
+    font-weight: 700;
+    font-size: 76px;
+    line-height: 1.5em;
+    margin: 0;
+    padding: 0;
+    opacity: 40%;
+
+}
+
+input[type=button]:hover{
+    opacity: 100%;
+}
+
+/* typing entry */
+input[type=text] {
+    background: none;
+    border: none;
+    border-bottom: 2px solid #EA9414;
+    outline: none;
+    text-align: left;
+    /* 40% opacity white = #E5E5E5 */
+    color: #E5E5E5; 
+    cursor: pointer;
+
+    font-weight: 300;
+    font-size: 45px;
+    line-height: 1.5em;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: 100vh;
+    margin: -6vh 12vw 0;
+}
+.left {
+    width: 50vw;
+}
+.right {
+    width: 25vw;
+    /* padding-right: 5vw; */
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+}
+/* use this class on empty h3 to take out of flex flow */
+.off {
+    position: absolute;
+}
+
+
+#progress{
+    position: fixed;    
+    left: 12vw;
+    bottom: 10vh;
+    width: 76vw;
+}
+#thick, #thin {
+    background-color: #EA9414;
+}
+#thick {
+    height: 8px;
+    width: 25%;
+    transition: width 1.5s;
+}
+#thin {
+    height: 1px;
+    width: 100%;
+}
+
+/* use this class to show that an answer was selected */
+.select {
+    color: #EA9414;
+    opacity: 100%;
+    cursor: pointer
+}
+.notselected {
+    color: white;
+    opacity: 40%;
+    cursor: pointer
+}
+.notselected:hover {
+    opacity: 100%;
+}
+p {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1em;
+    padding: 1.2vw;
+    margin-left: 1vw;
+
+    background: none;
+    border: 1px solid #EA9414;
+    color: #EA9414;
+    opacity: 40%;
+    
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.next {
+    background-color: #EA9414;
+    color: #171717;
+    opacity: 100%;
+}
+
+#results {
+    height: 85vh;
+    margin: 10vh 12vw 5vh;
+    display: flex;
+    flex-direction: column;
+}
+.hidden {
+    display: none;
+}
+
+h4 {
+    cursor: pointer;
+    font-weight: 300;
+    font-size: .25em;
+    line-height: 1em;
+}
+
+#wordboard {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-top: auto;
+}
+.wordcloud {
+    margin-bottom: 5vh;
+}
+.eachdiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-top: auto;
+}
