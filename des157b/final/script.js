@@ -30,6 +30,9 @@
     let thick = document.getElementById('thick');
     const results = document.getElementById('results');
     const popupbox = document.getElementById('popupbox');
+    let h4items = document.getElementsByTagName('h4');
+    let year = document.getElementById('year');
+    let descrip = document.getElementById('descrip');
     
     
 
@@ -304,9 +307,6 @@
     };
 
 
-    let h4items = document.getElementsByTagName('h4');
-    let year = document.getElementById('year');
-    let descrip = document.getElementById('descrip');
 
     // need to call after the words are on screen, not before
     function popup (e) {
@@ -353,40 +353,25 @@
         Submissions.find().then((objids) => {
             for (const e of objids) {
                 let datacolumn = e.get(`${column}`);
-                let descripdata = e.get('descrip');
 
                 // loops thru the answers of q3 or q4 depending on if user clicked a word from right after or now 
                 for (const i of datacolumn){
-                    if (i == target) {
-                        if (descripdata != ""){
-                            yearhtml = e.get('when');
-                            descriphtml = descripdata;
-                            if (column == 'rightafter') {
-                                savedrightafter = datacolumn;
-                                savednow = e.get('now');
-                            } else {
-                                savednow = datacolumn;
-                                savedrightafter = e.get('rightafter');
-                            };
-                        };
-                    };
-                };
-                // if there is no entry that has a match AND description, then it loops thru entries again to just display a year 
-                if (yearhtml == "") {
-                    for (const n of datacolumn) {
-                        if (n == target) {
-                            yearhtml = e.get('when');
-                            descriphtml = descripdata;
+                    let descripdata = e.get('descrip');
 
-                            if (column == 'rightafter') {
-                                savedrightafter = datacolumn;
-                                savednow = e.get('now');
-                                
-                            } else {
-                                savednow = datacolumn;
-                                savedrightafter = e.get('rightafter');
-                                
-                            };
+                    if (i == target) {
+                        yearhtml = e.get('when');
+                        
+                        if (column == 'rightafter') {
+                            savedrightafter = datacolumn;
+                            savednow = e.get('now');
+                        } else {
+                            savednow = datacolumn;
+                            savedrightafter = e.get('rightafter');
+                        };
+
+                        if (typeof descriphtml != 'undefined'){
+                            descriphtml = descripdata;
+                            break;
                         };
                     };
                 };
@@ -394,14 +379,16 @@
 
             let nowwords1 = document.getElementById('nowwords');
             let pastwords1 = document.getElementById('pastwords');
+
     
             // displaying the data on the screen 
             year.innerHTML = yearhtml;
-            if (descriphtml == undefined) {
+            if (typeof descriphtml == 'undefined') {
                 descrip.innerHTML = "";
                 descrip.style.display='none';
             } else {
                 descrip.innerHTML = descriphtml;
+                descrip.style.display='block';
             };
             
             // selecting the words according to entry
