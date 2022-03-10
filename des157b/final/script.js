@@ -10,7 +10,6 @@
     const no = document.getElementById('no');
     const time = document.getElementById('time');
     const rightafter = document.getElementById('rightafter');
-    // const thirdq = document.getElementById('3/4');
     const lastq = document.getElementById('4/4');
     const now = document.getElementById('now');
     const next2 = document.getElementById('next2');
@@ -426,20 +425,4 @@
         });
     };
     
-
-
-
-
-
-
-    // TO-DO:
-
-
-    // QUESTION ORDER:
-    // have you exp racism?
-    // when did it happen? (on pop up shows) 
-    // >>>>>>>>>ADD
-    // if you're comfortable sharing, what happened? 
-    // right after
-    // now
 })();
